@@ -19,6 +19,16 @@
 
 /*
 =========================================================================================
+SET SERVER NUMBER (for Paradigm)
+=========================================================================================
+Force a specific server number for correct DB lookups and whitelisting (e.g., Zeus).
+=========================================================================================
+*/
+
+uiNamespace setVariable ["serverNumber", 4];
+
+/*
+=========================================================================================
 init: `vn_mf_fnc_server_init_backend`
 =========================================================================================
 WARNING: YOU WILL NOT HAVE THIS DURING LOCAL DEVELOPMENT. This always generates an error

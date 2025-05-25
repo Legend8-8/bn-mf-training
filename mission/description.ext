@@ -10,7 +10,7 @@ class Header
 {
 	gameType = "mikefrc";
 	minPlayers = 1;
-	maxPlayers = 80; //Do not exceed 32 players, as it begins to degrade balance and performance.
+	maxPlayers = 91; //Do not exceed 32 players, as it begins to degrade balance and performance.
 };
 respawn = "BASE";
 respawnDelay = 20;
@@ -19,14 +19,14 @@ respawnButton = 1;
 respawnOnStart = -1;
 respawnTemplates[] = { "MenuPosition" };
 onPauseScript = "";
-onLoadMission = QUOT(Mike Force (VN_MF_VERSION));
+onLoadMission = QUOT(Mike Force (VN_MF_VERSION) BRO-NATION Edition);
 OnLoadIntro = "Welcome to Mike Force";
-loadScreen = "\vn\missions_f_vietnam\data\img\mikeforce\mission.jpg";
+loadScreen = "custom\loadingscreens\BroNationEagle.jpg";
 OnLoadIntroTime = 0;
 OnLoadMissionTime = 0;
 briefingName = QUOT(Mike Force (VN_MF_VERSION));
 onLoadName = QUOT(Mike Force (VN_MF_VERSION));
-overviewPicture = "\vn\missions_f_vietnam\data\img\mikeforce\mission.jpg";
+overviewPicture = "custom\loadingscreens\BroNationEagle.jpg";
 
 disabledAI = 1;
 scriptedPlayer = 0;
@@ -41,22 +41,10 @@ enableItemsDropping = 0;
 briefing = 0;
 debriefing = 0;
 enableDebugConsole[] = {
-	//Spoffy
-	"76561198011383725",
-	//HARRY
-	"76561198140282519",
-	//ferrous
-	"76561198084982129",
-	//leal
-	"76561198173293466",
-	//cerebral
+	//Cerebral
 	"76561199195828749",
-	//zod
-	"76561198808129773",
-	//cypher
-	"76561199175533497",
-	//rogier
-	"76561198007206066"
+	//Cypher
+	"76561199175533497"
 };
 
 allowFunctionsLog = 1;
@@ -76,6 +64,11 @@ wreckLimit = 2;
 wreckRemovalMinTime = 60;
 wreckRemovalMaxTime = 360;
 
+/*
+// @dijksterhuis: disabled as part of https://github.com/Bro-Nation/Mike-Force/pull/343
+// description.ext showHUD setting disables the ability to toggle HUD in game
+// https://community.bistudio.com/wiki/showHUD
+
 showHUD[] =
 {
 	true,	// Scripted HUD (same as showHUD command)
@@ -88,6 +81,7 @@ showHUD[] =
 	true,	// HUD Weapon Cursors
 	true	// Vehicle display panels
 };
+*/
 
 // Enable CBA settings loading
 cba_settings_hasSettingsFile = 1;
@@ -105,6 +99,13 @@ class CfgSFX
 		sounds[] = {sound0};
 		empty[] = {"", 0, 0, 0, 0, 0, 0, 0};
 	};
+
+	class DacWhistle
+	{
+		sound0[] = {"custom\sounds\whistle.ogg", db+2, 1.0, 500, 1, 0, 0, 0};  // path to addon sound
+		sounds[] = {sound0};
+		empty[] = {"", 0, 0, 0, 0, 0, 0, 0};
+	}
 };
 
 
@@ -113,6 +114,11 @@ class CfgVehicles
 	class Siren // class name to be used with createSoundSource
 	{
 		sound = "MPSiren"; // reference to CfgSFX class
+	};
+
+	class DacWhistle // class name to be used with createSoundSource
+	{
+		sound = "DacWhistle"; // reference to CfgSFX class
 	};
 };
 
@@ -132,7 +138,7 @@ class CfgDebriefing
 	{
 		title = "WHITELISTED SIDE";
 		subtitle = "Not whitelisted for Dac Cong.";
-		description = "<t align='center'>You are trying to join a reserved team for Dac Cong Commandos. <br/> <t align='center'>Join the Dac Cong Commandos by applying at this link</t> <br/> <t align='center' size='1.25'><a href='https://discord.gg/3wdfV6c8td'>BRO-NATION UNITS DISCORD</a></t>";
+		description = "<t align='center'>You are trying to join a reserved team for Dac Cong Commandos. <br/> <t align='center'>Join the Dac Cong Commandos by applying at this link</t> <br/> <t align='center' size='1.25'><a href='https://discord.gg/bro-nation'>BRO-NATION DISCORD</a></t>";
 		pictureBackground = "";
 		picture = "";
 		pictureColor[] = {0.0,0.3,0.6,1};
@@ -142,7 +148,7 @@ class CfgDebriefing
 	{
 		title = "RESERVED";
 		subtitle = "NOT approved for Press Corp.";
-		description = "<t align='center'>You are trying to join a reserved slot for Press Corp. <br/> <t align='center'>Join discord by clicking this link and introduce yourself</t> <br/> <t align='center' size='1.25'><a href='https://discord.gg/W6geNfx'>BRO-NATION DISCORD INVITE LINK</a></t> <br/> <t align='center'>Join the BRO-NATION Units and be considered for Press by applying at this link</t> <br/> <t align='center' size='1.25'><a href='https://discord.gg/3wdfV6c8td'>BRO-NATION UNITS DISCORD</a></t> <br/> <t align='center'>Join the Civilian Press by inquirijng within discord</t>";
+		description = "<t align='center'>You are trying to join a reserved slot for Press Corp. <br/> <t align='center'>Join discord by clicking this link and introduce yourself</t> <br/> <t align='center' size='1.25'><a href='https://discord.gg/W6geNfx'>BRO-NATION DISCORD INVITE LINK</a></t> <br/> <t align='center'>Join the BRO-NATION Units and be considered for Press by applying at this link</t> <br/> <t align='center' size='1.25'><a href='https://discord.gg/bro-nation'>BRO-NATION DISCORD</a></t> <br/> <t align='center'>Join the Civilian Press by inquiring within discord</t>";
 		pictureBackground = "";
 		picture = "";
 		pictureColor[] = {0.0,0.3,0.6,1};
